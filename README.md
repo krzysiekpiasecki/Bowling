@@ -10,4 +10,4 @@ Simple object-oriented Bowling game engine
 
 ### Documentation
 
-[Bowling API](https://krzysiekpiasecki.github.io/Bowling/api/index.html)
+[Bowling API](https://krzysiekpiasecki.github.io/Bowling/api/KrzysiekPiasecki/Bowling.html)
