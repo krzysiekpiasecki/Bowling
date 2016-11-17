@@ -11,6 +11,11 @@ php:
   - 7.1
 
 before_install:
+  - phpize
+  - ./configure
+  - make
+  - make install
+  - echo "extension=ast.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - phpenv config-add php.ini.dist
 
 install:
