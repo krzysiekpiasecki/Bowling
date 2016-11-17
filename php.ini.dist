@@ -1,1 +1,2 @@
 # php project specific configuration
+extension = "ast.so"
