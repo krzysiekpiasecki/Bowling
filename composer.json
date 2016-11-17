@@ -20,7 +20,8 @@
     "phpunit/phpunit": "5.*",
     "phing/phing": "^2.1",
     "friendsofphp/php-cs-fixer": "^1.0",
-    "sami/sami": "^3.3@dev"
+    "sami/sami": "^3.3@dev",
+    "etsy/phan": "^0.6.0"
   },
   "conflict": {
   },
