@@ -37,9 +37,9 @@ trait SequenceTrait
     /**
      * An element iterator
      *
-     * @return \Iterator An element iterator
+     * @return \Generator An element iterator
      */
-    public function getIterator(): \Iterator
+    public function getIterator(): \Generator
     {
         foreach ($this->sequence as $element) {
             yield $element;
