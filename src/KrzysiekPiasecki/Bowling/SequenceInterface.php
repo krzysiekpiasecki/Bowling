@@ -31,7 +31,7 @@ interface SequenceInterface extends \Countable, \IteratorAggregate
     /**
      * An element iterator
      *
-     * @return \Iterator An element iterator
+     * @return \Generator An element iterator
      */
     public function getIterator(): \Generator;
 }
