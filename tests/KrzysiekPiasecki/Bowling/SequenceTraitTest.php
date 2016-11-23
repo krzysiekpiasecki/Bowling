@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace KrzysiekPiasecki\Bowling;
 
 /**
- * Test for {@see SequenceTrait} class
+ * Test for {@see SequenceTrait}
  *
  * @coversDefaultClass SequenceTrait SequenceTrait class
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
@@ -28,8 +28,7 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
     public function testCount()
     {
         $sequenceTraitFake = new class() implements SequenceInterface {
-            use \KrzysiekPiasecki\Bowling\SequenceTrait;
-            private $sequence = [];
+            use SequenceTrait;
             public function __construct()
             {
                 $this->sequence = [1,2,3,4,5];
@@ -44,8 +43,7 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
     public function testGetIterator()
     {
         $sequenceTraitFake = new class() implements SequenceInterface {
-            use \KrzysiekPiasecki\Bowling\SequenceTrait;
-            private $sequence = [];
+            use SequenceTrait;
             public function __construct()
             {
                 $this->sequence = ["Ala", "ma", "kota"];
