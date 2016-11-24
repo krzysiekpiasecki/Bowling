@@ -1,6 +1,10 @@
+/bin
 /etc
-/var
-/vendor
 /tmp
-/build
-/cache
+/var
+/var/cache
+/vendor
+
+phpunit.xml
+build.xml
+phan.php
