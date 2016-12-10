@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace KrzysiekPiasecki\Bowling;
 
 /**
- * Represents a sequence
+ * Represents a sequence of elements
  *
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
@@ -29,9 +29,9 @@ interface SequenceInterface extends \Countable, \IteratorAggregate
     public function count(): int;
 
     /**
-     * An element iterator
+     * A sequence element iterator
      *
-     * @return \Generator An element iterator
+     * @return \Traversable A sequence element iterator
      */
-    public function getIterator(): \Generator;
+    public function getIterator(): \Traversable;
 }
