@@ -10,7 +10,10 @@ use Symfony\Component\Finder\Finder;
 $iterator = Finder::create()
     ->files()
     ->name('*.php')
-    ->in(array('./src', './tests'));
+    ->in(array(
+        './src'
+    )
+);
 
 
 return new Sami(

@@ -21,7 +21,6 @@ namespace KrzysiekPiasecki\Bowling;
  */
 interface BowlingGameInterface
 {
-
     /**
      * @return int
      */

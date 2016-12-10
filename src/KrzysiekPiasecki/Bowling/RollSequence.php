@@ -22,6 +22,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 final class RollSequence implements RollSequenceInterface
 {
+
     use SequenceTrait;
 
     /**

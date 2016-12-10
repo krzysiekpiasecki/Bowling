@@ -21,6 +21,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 final class Roll implements RollInterface
 {
+
     /**
      * @var array Points sequence
      */

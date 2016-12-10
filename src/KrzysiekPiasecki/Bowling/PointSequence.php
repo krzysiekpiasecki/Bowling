@@ -16,22 +16,27 @@ namespace KrzysiekPiasecki\Bowling;
 /**
  * Represents a sequence of points
  *
+ * A sequence is a group of points that are kept in an ordered list. The order in which the points go
+ * in dictates how they are returned in a First In, First Out manner.
+ *
+ * This is an immutable implementation of {@see PointSequenceInterface}. Linking this sequence
+ * with points or other sequence of points returns always a new instance.
+ *
  * @see PointSequenceInterface A sequence of points
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
 final class PointSequence implements PointSequenceInterface
 {
-
     /**
      * @see SequenceTrait Implementation of {@see SequenceInterface}
      */
     use SequenceTrait;
 
     /**
-     * New points sequence with a given sequence of points
+     * New points sequence with optional initial sequence of points
      *
-     * @param array $points A sequence of points
+     * @param array $points Initial sequence of points
      */
     public function __construct(array $points = [])
     {
@@ -41,7 +46,7 @@ final class PointSequence implements PointSequenceInterface
     /**
      * @inheritdoc
      */
-    public function appendPoints(int $points): PointSequenceInterface
+    public function addPoints(int $points): PointSequenceInterface
     {
         $newSequence = clone $this;
         $newSequence->sequence[] = $points;
@@ -52,10 +57,18 @@ final class PointSequence implements PointSequenceInterface
     /**
      * @inheritdoc
      */
-    public function appendPointSequence(PointSequenceInterface $pointSequence): PointSequenceInterface
+    public function addPointSequence(PointSequenceInterface $pointSequence): PointSequenceInterface
     {
+        if (0 === $pointSequence->count()) {
+            return $this;
+        }
+
         $newSequence = clone $this;
-        $newSequence->sequence = array_merge($this->sequence, iterator_to_array($pointSequence));
+
+        $newSequence->sequence = array_merge(
+            $this->sequence,
+            iterator_to_array($pointSequence)
+        );
 
         return $newSequence;
     }

@@ -21,6 +21,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 interface FrameInterface extends ScoreInterface
 {
+
     /**
      * @inheritdoc
      */

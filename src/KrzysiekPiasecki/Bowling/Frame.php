@@ -21,6 +21,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 final class Frame implements FrameInterface
 {
+
     private $rolls;
     private $score;
 

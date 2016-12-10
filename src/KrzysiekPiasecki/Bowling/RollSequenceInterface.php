@@ -46,5 +46,5 @@ interface RollSequenceInterface extends SequenceInterface
     /**
      * @inheritdoc
      */
-    public function getIterator(): \Generator;
+    public function getIterator(): \Traversable;
 }

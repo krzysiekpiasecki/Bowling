@@ -18,6 +18,8 @@ namespace KrzysiekPiasecki\Bowling;
  */
 class BowlingGame
 {
+    private $frameSequence;
+
     private $frames;
     private $frameNumber;
     private $rollNumber;

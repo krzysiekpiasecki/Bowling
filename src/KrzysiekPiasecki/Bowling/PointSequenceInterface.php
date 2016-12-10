@@ -16,24 +16,25 @@ namespace KrzysiekPiasecki\Bowling;
 /**
  * Represents a sequence of points
  *
+ * @see SequenceInterface A sequence of points interface
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
 interface PointSequenceInterface extends SequenceInterface
 {
     /**
-     * Append a new points to a sequence
+     * Add given points to a sequence
      *
-     * @param int $points Points appended to a sequence
-     * @return PointSequenceInterface A new sequence with an appended points
+     * @param int $points Points added to a sequence
+     * @return PointSequenceInterface A sequence with points added to a sequence
      */
-    public function appendPoints(int $points): PointSequenceInterface;
+    public function addPoints(int $points): PointSequenceInterface;
 
     /**
-     * New point sequence which is a sequence with all points appended from another sequence
+     * Add points from other points sequence
      *
-     * @param PointSequenceInterface $pointSequence Another sequence to append
-     * @return PointSequenceInterface A new point sequence with another sequence appended
+     * @param PointSequenceInterface $pointSequence Other points sequence
+     * @return PointSequenceInterface A sequence with points added from other points sequence
      */
-    public function appendPointSequence(PointSequenceInterface $pointSequence): PointSequenceInterface;
+    public function addPointSequence(PointSequenceInterface $pointSequence): PointSequenceInterface;
 }

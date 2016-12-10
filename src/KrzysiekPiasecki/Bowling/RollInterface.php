@@ -21,6 +21,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 interface RollInterface extends ScoreInterface
 {
+
     /**
      * Number of pins knocked down
      *

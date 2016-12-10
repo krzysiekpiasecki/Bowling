@@ -22,6 +22,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 class RollSequenceTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers RollSequence::appendRoll()
      * @covers RollSequence::rollNumber()

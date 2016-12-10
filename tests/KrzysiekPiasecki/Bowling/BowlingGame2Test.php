@@ -24,7 +24,6 @@ namespace KrzysiekPiasecki\Bowling;
  */
 class BowlingGame2Test extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @covers BowlingGame::score()
      * @covers BowlingGame::roll()

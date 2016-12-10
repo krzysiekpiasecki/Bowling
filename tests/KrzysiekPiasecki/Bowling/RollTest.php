@@ -22,6 +22,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 class RollTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Roll::pins()
      */

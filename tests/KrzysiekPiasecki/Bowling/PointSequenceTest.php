@@ -16,26 +16,61 @@ namespace KrzysiekPiasecki\Bowling;
 /**
  * Test for {@see PointSequence} class
  *
- * @coversDefaultClass PointSequence PointSequence class
+ * @coversDefaultClass PointSequence
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
 class PointSequenceTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
-     * @covers PointSequence::appendPoints()
+     * @covers PointSequence::addPoints()
+     * @covers PointSequence::addPointSequence()
      */
-    public function testAppendPoints()
+    public function testReturnNewInstance(): void
     {
-        $this->assertEquals([1, 2, 5], iterator_to_array((new PointSequence())->appendPoints(1)->appendPoints(2)->appendPoints(5)));
+        $sequence = new PointSequence();
+        $sequence2 = $sequence->addPoints(2);
+        $sequence3 = $sequence2->addPointSequence($sequence2);
+
+        $this->assertNotSame($sequence2, $sequence);
+        $this->assertNotSame($sequence2, $sequence3);
     }
 
     /**
-     * @covers PointSequence::appendPointSequence()
+     * @covers PointSequence::addPoints()
+     * @covers PointSequence::addPointSequence()
      */
-    public function testAppendSequence()
+    public function testReturnTheSameInstanceWhenEmptySequence(): void
     {
-        $this->assertEquals([8, 2], iterator_to_array((new PointSequence())->appendPointSequence(new PointSequence([8, 2]))));
+        $sequence = new PointSequence();
+        $sequence2 = $sequence->addPointSequence(new PointSequence());
+
+        $this->assertSame($sequence, $sequence2);
+    }
+
+    /**
+     * @covers PointSequence::addPoints()
+     */
+    public function testLinkPoints(): void
+    {
+        $this->assertEquals(
+            [1, 2, 5],
+            iterator_to_array(
+                (new PointSequence())->addPoints(1)->addPoints(2)->addPoints(5)
+            )
+        );
+    }
+
+    /**
+     * @covers PointSequence::addPointSequence()
+     */
+    public function testLinkPointSequence(): void
+    {
+        $this->assertEquals(
+            [8, 2],
+            iterator_to_array(
+                (new PointSequence())->addPointSequence(new PointSequence([8, 2]))
+            )
+        );
     }
 }

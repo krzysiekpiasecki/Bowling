@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "php": "^7"
+    "php": "^7.1"
   },
   "require-dev": {
     "phing/phing": "^2.15",
@@ -26,7 +26,9 @@
   "conflict": {
   },
   "scripts": {
-    "test": "vendor/bin/phan -k phan.php.dist; vendor/bin/phpunit"
+    "test": "vendor/bin/phpunit",
+    "phan": "vendor/bin/phan -k phan.php.dist",
+    "build": "vendor/bin/phing"
   },
   "extra": {
   },

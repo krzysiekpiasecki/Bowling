@@ -14,27 +14,32 @@ declare(strict_types=1);
 namespace KrzysiekPiasecki\Bowling;
 
 /**
- * Represents a frame sequence
+ * Represents a sequence of frames
  *
- * @see SequenceInterface A sequence of elements
+ * The sequence always link frames at the end of this sequence and use natural numbering,
+ * so first element is at the index 1.
+ *
+ * @see SequenceInterface A sequence of frames
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
 interface FrameSequenceInterface extends SequenceInterface
 {
     /**
-     * Frame with a given number
+     * Frame with the given number
      *
-     * @param int $number A number of frame position in a sequence
-     * @return FrameInterface A frame at a give position
+     * The sequence use natural indexing, so first frame is at index 1.
+     *
+     * @param int $number Frame natural index
+     * @return FrameInterface A frame at a given index
      */
     public function frameNumber(int $number): FrameInterface;
 
     /**
-     * Append a new frame to a sequence
+     * Link a new frame at the end of this sequence
      *
-     * @param FrameInterface $frame A new frame appended to a sequence
-     * @return FrameSequenceInterface New sequence with a frame appended to the sequence
+     * @param FrameInterface $frame A frame linked at the end of this sequence
+     * @return FrameSequenceInterface A sequence with a new frame linked at the end of this sequence
      */
-    public function appendFrame(FrameInterface $frame): FrameSequenceInterface;
+    public function linkFrame(FrameInterface $frame): FrameSequenceInterface;
 }

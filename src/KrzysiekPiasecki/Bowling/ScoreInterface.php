@@ -21,6 +21,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 interface ScoreInterface
 {
+
     /**
      * A score points
      *

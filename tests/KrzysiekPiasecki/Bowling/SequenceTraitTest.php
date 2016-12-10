@@ -25,7 +25,7 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers SequenceTrait::count()
      */
-    public function testCount()
+    public function testCount(): void
     {
         $sequenceTraitFake = new class() implements SequenceInterface {
             use SequenceTrait;
@@ -43,7 +43,7 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers SequenceTrait::getIterator()
      */
-    public function testGetIterator()
+    public function testGetIterator(): void
     {
         $sequenceTraitFake = new class() implements SequenceInterface {
             use SequenceTrait;

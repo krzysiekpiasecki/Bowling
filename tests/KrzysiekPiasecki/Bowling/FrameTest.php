@@ -22,6 +22,7 @@ namespace KrzysiekPiasecki\Bowling;
  */
 class FrameTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @covers Frame::score()
      * @cover Frame::withRoll()
