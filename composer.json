@@ -26,6 +26,7 @@
   "conflict": {
   },
   "scripts": {
+    "test": "vendor/bin/phan -k phan.php.dist; vendor/bin/phpunit"
   },
   "extra": {
   },
