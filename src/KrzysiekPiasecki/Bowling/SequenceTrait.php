@@ -12,15 +12,16 @@
 namespace KrzysiekPiasecki\Bowling;
 
 /**
- * Represents a sequence
+ * Represents a sequence of elements
  *
+ * @see SequenceInterface A sequence of elements interface
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
 trait SequenceTrait
 {
     /**
-     * @var array
+     * @var array Sequence of elements
      */
     private $sequence = [];
 
@@ -35,14 +36,12 @@ trait SequenceTrait
     }
 
     /**
-     * An element iterator
+     * A sequence element iterator
      *
-     * @return \Generator An element iterator
+     * @return \Traversable A sequence element iterator
      */
-    public function getIterator(): \Generator
+    public function getIterator(): \Traversable
     {
-        foreach ($this->sequence as $element) {
-            yield $element;
-        }
+        return new \ArrayIterator($this->sequence);
     }
 }

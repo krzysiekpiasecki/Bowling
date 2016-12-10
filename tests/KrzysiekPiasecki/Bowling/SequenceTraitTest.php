@@ -16,7 +16,7 @@ namespace KrzysiekPiasecki\Bowling;
 /**
  * Test for {@see SequenceTrait}
  *
- * @coversDefaultClass SequenceTrait SequenceTrait class
+ * @coversDefaultClass SequenceTrait
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
@@ -34,7 +34,10 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
                 $this->sequence = [1,2,3,4,5];
             }
         };
-        $this->assertSame(5, $sequenceTraitFake->count());
+        $this->assertSame(
+            5,
+            $sequenceTraitFake->count()
+        );
     }
 
     /**
@@ -49,6 +52,9 @@ class SequenceTraitTest extends \PHPUnit_Framework_TestCase
                 $this->sequence = ["Ala", "ma", "kota"];
             }
         };
-        $this->assertEquals(["Ala", "ma", "kota"], iterator_to_array($sequenceTraitFake));
+        $this->assertEquals(
+            ["Ala", "ma", "kota"],
+            iterator_to_array($sequenceTraitFake)
+        );
     }
 }
