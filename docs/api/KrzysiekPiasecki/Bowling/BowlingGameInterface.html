@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>KrzysiekPiasecki\Bowling\BowlingGame | BowlingGame</title>
+    <title>KrzysiekPiasecki\Bowling\BowlingGameInterface | BowlingGame</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:KrzysiekPiasecki_Bowling_BowlingGame" data-root-path="../../">
+    <body id="class" data-name="class:KrzysiekPiasecki_Bowling_BowlingGameInterface" data-root-path="../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -62,18 +62,18 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">interface</span></li>
                                                             <li><a href="../../KrzysiekPiasecki.html">KrzysiekPiasecki</a></li>
                                         <li><a href="../../KrzysiekPiasecki/Bowling.html">Bowling</a></li>
     
-                <li>BowlingGame</li>
+                <li>BowlingGameInterface</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            BowlingGame
+            BowlingGameInterface
                 
         </h1>
     </div>
@@ -84,7 +84,7 @@
     
 
             <div class="description">
-            <p>A Bowling game engine.</p>                    </div>
+            <p>Represents a bowling game</p>                    </div>
     
     
     
@@ -94,20 +94,10 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    int
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>()
-        
-                                            <p>A new BowlingGame</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../KrzysiekPiasecki/Bowling/BowlingGame.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGame">BowlingGame</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_roll">roll</a>(<abbr title="KrzysiekPiasecki\Bowling\int">int</abbr> $numberPin)
+                    <a href="#method_frameNumber">frameNumber</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -115,10 +105,10 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    int
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_score">score</a>()
+                    <a href="#method_rollNumber">rollNumber</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -126,10 +116,10 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <a href="../../KrzysiekPiasecki/Bowling/FrameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\FrameInterface">FrameInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_printGame">printGame</a>(<a href="../../KrzysiekPiasecki/Bowling/BowlingGameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGameInterface">BowlingGameInterface</abbr></a> $game)
+                    <a href="#method_frame">frame</a>(<abbr title="KrzysiekPiasecki\Bowling\int">int</abbr> $frameNumber)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -137,7 +127,18 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_totalScore">totalScore</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isFinished">isFinished</a>()
@@ -153,20 +154,27 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at line         line 33</div>
-        <code>                    
-    <strong>__construct</strong>()
+                    <h3 id="method_frameNumber">
+        <div class="location">at line         line 27</div>
+        <code>                    int
+    <strong>frameNumber</strong>()
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>A new BowlingGame</p>                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -174,10 +182,38 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_roll">
-        <div class="location">at line         line 46</div>
-        <code>                    <a href="../../KrzysiekPiasecki/Bowling/BowlingGame.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGame">BowlingGame</abbr></a>
-    <strong>roll</strong>(<abbr title="KrzysiekPiasecki\Bowling\int">int</abbr> $numberPin)
+                    <h3 id="method_rollNumber">
+        <div class="location">at line         line 32</div>
+        <code>                    int
+    <strong>rollNumber</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_frame">
+        <div class="location">at line         line 39</div>
+        <code>                    <a href="../../KrzysiekPiasecki/Bowling/FrameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\FrameInterface">FrameInterface</abbr></a>
+    <strong>frame</strong>(<abbr title="KrzysiekPiasecki\Bowling\int">int</abbr> $frameNumber)
         </code>
     </h3>
     <div class="details">
@@ -190,7 +226,7 @@
                     <table class="table table-condensed">
                     <tr>
                 <td><abbr title="KrzysiekPiasecki\Bowling\int">int</abbr></td>
-                <td>$numberPin</td>
+                <td>$frameNumber</td>
                 <td></td>
             </tr>
             </table>
@@ -200,7 +236,44 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../KrzysiekPiasecki/Bowling/BowlingGame.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGame">BowlingGame</abbr></a></td>
+            <td><a href="../../KrzysiekPiasecki/Bowling/FrameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\FrameInterface">FrameInterface</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="KrzysiekPiasecki\Bowling\FrameOutOfBoundsException">FrameOutOfBoundsException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_totalScore">
+        <div class="location">at line         line 44</div>
+        <code>                    int
+    <strong>totalScore</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
             <td></td>
         </tr>
     </table>
@@ -212,57 +285,9 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_score">
-        <div class="location">at line         line 61</div>
-        <code>                    
-    <strong>score</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_printGame">
-        <div class="location">at line         line 68</div>
-        <code>                    
-    <strong>printGame</strong>(<a href="../../KrzysiekPiasecki/Bowling/BowlingGameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGameInterface">BowlingGameInterface</abbr></a> $game)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../KrzysiekPiasecki/Bowling/BowlingGameInterface.html"><abbr title="KrzysiekPiasecki\Bowling\BowlingGameInterface">BowlingGameInterface</abbr></a></td>
-                <td>$game</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_isFinished">
-        <div class="location">at line         line 73</div>
-        <code>                    
+        <div class="location">at line         line 49</div>
+        <code>                    bool
     <strong>isFinished</strong>()
         </code>
     </h3>
@@ -272,6 +297,15 @@
 
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
