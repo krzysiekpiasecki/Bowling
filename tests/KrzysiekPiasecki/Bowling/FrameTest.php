@@ -29,8 +29,12 @@ class FrameTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithRollAndScore()
     {
-        $frame = (new Frame())->withRoll((new Roll(10))->withExtraPoints(7)->withExtraPoints(3))->withRoll(new Roll(5));
-        $this->assertSame(25, $frame->score());
+        $frame = (new Frame())->withRoll(
+            (new Roll(10))->withPoints(10)->withPoints(3)
+        )->withRoll((new Roll(5))->withPoints(5)
+        );
+
+        $this->assertSame(18, $frame->score());
     }
 
     /**
@@ -38,7 +42,7 @@ class FrameTest extends \PHPUnit_Framework_TestCase
      */
     public function testRoll()
     {
-        $roll1 = (new Roll(10))->withExtraPoints(2)->withExtraPoints(8);
+        $roll1 = (new Roll(10))->withPoints(2)->withPoints(8);
         $roll2 = new Roll(6);
         $frame = (new Frame())->withRoll($roll1)->withRoll($roll2);
         $this->assertEquals([$roll1, $roll2], iterator_to_array($frame->rollSequence()));
@@ -84,9 +88,9 @@ class FrameTest extends \PHPUnit_Framework_TestCase
      */
     public function testReplaceRoll()
     {
-        $roll1 = new Roll(10);
-        $roll2 = new Roll(2);
-        $roll3 = $roll1->withExtraPoints(2);
+        $roll1 = (new Roll(10))->withPoints(10);
+        $roll2 = (new Roll(2))->withPoints(2);
+        $roll3 = $roll1->withPoints(2);
 
         $frame = (new Frame())->withRoll($roll1)->withRoll($roll2)->replaceRoll($roll3, 1);
         $this->assertSame(14, $frame->score());

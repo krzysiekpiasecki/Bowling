@@ -30,17 +30,17 @@ interface RollInterface extends ScoreInterface
     public function pins(): int;
 
     /**
-     * A new roll with an extra points
+     * A new roll with a given points added to current score
      *
      * @param int $points Number of extra points
-     * @return RollInterface A new roll with an extra points
+     * @return RollInterface A new roll with a given points added to current score
      */
-    public function withExtraPoints(int $points): RollInterface;
+    public function withPoints(int $points): RollInterface;
 
     /**
-     * A point sequence for a roll
+     * A point sequence for this roll
      *
-     * @return PointSequenceInterface A point sequence for a roll
+     * @return PointSequenceInterface A point sequence for this roll
      */
     public function pointSequence(): PointSequenceInterface;
 

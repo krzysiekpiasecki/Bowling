@@ -32,12 +32,13 @@ class RollTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Roll::withExtraPoints()
+     * @covers Roll::withPoints()
      */
-    public function testWithExtraPoints()
+    public function testWithPoints()
     {
         $roll = new Roll(10);
-        $newRoll = $roll->withExtraPoints(10)->withExtraPoints(5);
+        $newRoll = $roll->withPoints(10);
+
         $this->assertInstanceOf(Roll::class, $newRoll);
         $this->assertNotSame($roll, $newRoll);
     }
@@ -47,9 +48,10 @@ class RollTest extends \PHPUnit_Framework_TestCase
      */
     public function testScore()
     {
-        $roll = new Roll(10);
+        $roll = (new Roll(10))->withPoints(10);
         $this->assertSame(10, $roll->score());
-        $newRoll = $roll->withExtraPoints(5)->withExtraPoints(7);
+
+        $newRoll = $roll->withPoints(5)->withPoints(7);
         $this->assertSame(22, $newRoll->score());
     }
 
@@ -58,8 +60,12 @@ class RollTest extends \PHPUnit_Framework_TestCase
      */
     public function testPointSequence()
     {
-        $roll = (new Roll(5))->withExtraPoints(10)->withExtraPoints(5);
-        $pointSequence = $roll->pointSequence();
-        $this->assertSame([5, 10, 5], \iterator_to_array($pointSequence));
+        $this->assertSame([10, 5], \iterator_to_array(
+            (new Roll(5))->withPoints(10)->withPoints(5)->pointSequence()
+        ));
+
+        $this->assertSame([], \iterator_to_array(
+            (new Roll(5))->pointSequence()
+        ));
     }
 }

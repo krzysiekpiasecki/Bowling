@@ -16,6 +16,7 @@ namespace KrzysiekPiasecki\Bowling;
 /**
  * Represents a single roll
  *
+ * @see RollInterface
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */
@@ -23,7 +24,12 @@ final class Roll implements RollInterface
 {
 
     /**
-     * @var array Points sequence
+     * @var int The number of pins knocked down
+     */
+    private $pins;
+
+    /**
+     * @var array Points sequence for this roll
      */
     private $points;
 
@@ -34,7 +40,8 @@ final class Roll implements RollInterface
      */
     public function __construct(int $pins)
     {
-        $this->points = [$pins];
+        $this->pins = $pins;
+        $this->points = [];
     }
 
     /**
@@ -42,13 +49,13 @@ final class Roll implements RollInterface
      */
     public function pins(): int
     {
-        return $this->points[0];
+        return $this->pins;
     }
 
     /**
      * @inheritdoc
      */
-    public function withExtraPoints(int $points): RollInterface
+    public function withPoints(int $points): RollInterface
     {
         $newRoll = clone $this;
         $newRoll->points[] = $points;

@@ -108,7 +108,9 @@ class BowlingGame
     private function nextRoll(int $numberOfPins)
     {
         $this->rollNumber = $this->rollNumber + 1;
-        $this->frames[$this->frameNumber - 1] = $this->frames[$this->frameNumber - 1]->withRoll(new Roll($numberOfPins));
+        $this->frames[$this->frameNumber - 1] = $this->frames[$this->frameNumber - 1]->withRoll(
+            (new Roll($numberOfPins))->withPoints($numberOfPins)
+        );
 
         if (2 == $this->currentFrame()->rollSequence()->count() && 10 !== $this->frameNumber) {
             $this->nextFrame = true;
@@ -121,7 +123,7 @@ class BowlingGame
             $strikeFrameIndex = $this->frameNumber - 2;
 
             $this->frames[$strikeFrameIndex] = $this->frames[$strikeFrameIndex]->replaceRoll(
-                $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withExtraPoints($numberOfPins),
+                $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withPoints($numberOfPins),
                 1
             );
 
@@ -131,7 +133,7 @@ class BowlingGame
                 $strikeFrameIndex = $strikeFrameIndex - 1;
 
                 $this->frames[$strikeFrameIndex] = $this->frames[$strikeFrameIndex]->replaceRoll(
-                    $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withExtraPoints($numberOfPins),
+                    $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withPoints($numberOfPins),
                     1
                 );
 
@@ -165,7 +167,7 @@ class BowlingGame
 
             $spareFrameIndex = $this->frameNumber - 2;
             $this->frames[$spareFrameIndex] = $this->frames[$spareFrameIndex]->replaceRoll(
-                $this->frames[$this->frameNumber - 2]->rollSequence()->rollNumber(2)->withExtraPoints($numberPins),
+                $this->frames[$this->frameNumber - 2]->rollSequence()->rollNumber(2)->withPoints($numberPins),
                 2
             );
         }
