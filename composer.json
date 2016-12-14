@@ -33,9 +33,9 @@
   "extra": {
   },
   "autoload": {
-    "psr-4": {"KrzysiekPiasecki\\": ["src/KrzysiekPiasecki"]}
+    "psr-4": {"Bowling\\": ["src/Bowling"]}
   },
   "autoload-dev": {
-    "psr-4": {"KrzysiekPiasecki\\": ["tests/KrzysiekPiasecki"]}
+    "psr-4": {"Bowling\\": ["tests/KrzysiekPiasecki"]}
   }
 }

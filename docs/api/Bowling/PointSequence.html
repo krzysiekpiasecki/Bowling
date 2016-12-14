@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bowling\PointSequence | BowlingGame</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Bowling_PointSequence" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">BowlingGame</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Bowling.html">Bowling</a></li>
+    
+                <li>PointSequence</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            PointSequence
+                
+        </h1>
+    </div>
+
+    <p></p>
+
+        
+    
+
+            <div class="description">
+            <p>Represents a sequence of points</p>            <p>A sequence is a group of points that are kept in an ordered list. The order in which the points go
+in dictates how they are returned in a First In, First Out manner.</p>
+
+<p>This is an immutable implementation of {see PointSequenceInterface}. Linking this sequence
+with points or other sequence of points returns always a new instance.</p>        </div>
+    
+            <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../Bowling/SequenceTrait.html"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a>
+                                            
+                </div>
+                <div class="col-md-6">
+                    Represents a sequence of elements
+                </div>
+            </div>
+            </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_count">count</a>()
+        
+                                            <p>Number of sequence elements</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Bowling/SequenceTrait.html#method_count"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a target="_blank" href="http://php.net/Traversable">Traversable</a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getIterator">getIterator</a>()
+        
+                                            <p>A sequence element iterator</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Bowling/SequenceTrait.html#method_getIterator"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(array $points = array())
+        
+                                            <p>New points sequence with optional initial sequence of points</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addPoints">addPoints</a>(<abbr title="Bowling\int">int</abbr> $points)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addPointSequence">addPointSequence</a>(<a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a> $pointSequence)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_count">
+        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_count"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at line         line 33</div>
+        <code>                    int
+    <strong>count</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Number of sequence elements</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td>Number of sequence elements</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getIterator">
+        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_getIterator"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at line         line 43</div>
+        <code>                    <a target="_blank" href="http://php.net/Traversable">Traversable</a>
+    <strong>getIterator</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>A sequence element iterator</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a target="_blank" href="http://php.net/Traversable">Traversable</a></td>
+            <td>A sequence element iterator</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line         line 41</div>
+        <code>                    
+    <strong>__construct</strong>(array $points = array())
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>New points sequence with optional initial sequence of points</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$points</td>
+                <td>Initial sequence of points</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addPoints">
+        <div class="location">at line         line 49</div>
+        <code>                    <a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a>
+    <strong>addPoints</strong>(<abbr title="Bowling\int">int</abbr> $points)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Bowling\int">int</abbr></td>
+                <td>$points</td>
+                <td>Points added to a sequence</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a></td>
+            <td>A sequence with points added to a sequence</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addPointSequence">
+        <div class="location">at line         line 60</div>
+        <code>                    <a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a>
+    <strong>addPointSequence</strong>(<a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a> $pointSequence)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a></td>
+                <td>$pointSequence</td>
+                <td>Other points sequence</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Bowling/PointSequenceInterface.html"><abbr title="Bowling\PointSequenceInterface">PointSequenceInterface</abbr></a></td>
+            <td>A sequence with points added from other points sequence</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
