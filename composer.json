@@ -28,7 +28,8 @@
   "scripts": {
     "test": "vendor/bin/phpunit",
     "phan": "vendor/bin/phan -k phan.php.dist",
-    "build": "vendor/bin/phing"
+    "check": "vendor/bin/phan -k phan.php.dist; vendor/bin/phpunit",
+    "build": "vendor/bin/phing -v"
   },
   "extra": {
   },
