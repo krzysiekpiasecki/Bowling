@@ -38,18 +38,6 @@ class PointSequenceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers PointSequence::addPoints()
-     * @covers PointSequence::addPointSequence()
-     */
-    public function testReturnTheSameInstanceWhenEmptySequence(): void
-    {
-        $sequence = new PointSequence();
-        $sequence2 = $sequence->addPointSequence(new PointSequence());
-
-        $this->assertSame($sequence, $sequence2);
-    }
-
-    /**
-     * @covers PointSequence::addPoints()
      */
     public function testLinkPoints(): void
     {

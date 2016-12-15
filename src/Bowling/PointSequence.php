@@ -59,9 +59,6 @@ final class PointSequence implements PointSequenceInterface
      */
     public function addPointSequence(PointSequenceInterface $pointSequence): PointSequenceInterface
     {
-        if (0 === $pointSequence->count()) {
-            return $this;
-        }
 
         $newSequence = clone $this;
 
