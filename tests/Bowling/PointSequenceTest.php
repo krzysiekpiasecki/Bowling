@@ -39,7 +39,7 @@ class PointSequenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers PointSequence::addPoints()
      */
-    public function testLinkPoints(): void
+    public function testAddPoints(): void
     {
         $this->assertEquals(
             [1, 2, 5],
@@ -52,7 +52,7 @@ class PointSequenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers PointSequence::addPointSequence()
      */
-    public function testLinkPointSequence(): void
+    public function testAddPointSequence(): void
     {
         $this->assertEquals(
             [8, 2],

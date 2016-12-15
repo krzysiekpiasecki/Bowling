@@ -50,11 +50,27 @@ final class RollSequence implements RollSequenceInterface
     /**
      * @inheritDoc
      */
-    public function appendRoll(RollInterface $roll): RollSequenceInterface
+    public function addRoll(RollInterface $roll): RollSequenceInterface
     {
         $newRollSequence = clone $this;
         $newRollSequence->sequence[] = $roll;
 
         return $newRollSequence;
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function addRollSequence(RollSequenceInterface $rollSequence): RollSequenceInterface
+    {
+        $newSequence = clone $this;
+
+        $newSequence->sequence = array_merge(
+            $this->sequence,
+            iterator_to_array($rollSequence)
+        );
+
+        return $newSequence;
     }
 }

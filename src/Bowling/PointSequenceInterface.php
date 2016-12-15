@@ -16,7 +16,7 @@ namespace Bowling;
 /**
  * Represents a sequence of points
  *
- * @see SequenceInterface A sequence of points interface
+ * @see SequenceInterface A sequence of elements interface
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
  */

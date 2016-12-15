@@ -24,13 +24,13 @@ class RollSequenceTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers RollSequence::appendRoll()
+     * @covers RollSequence::addRoll()
      * @covers RollSequence::rollNumber()
      */
     public function testAppendRoll()
     {
         $roll1 = new Roll(5);
-        $rollSequence = (new RollSequence())->appendRoll($roll1);
+        $rollSequence = (new RollSequence())->addRoll($roll1);
 
         $this->assertSame($roll1, $rollSequence->rollNumber(1));
     }
@@ -43,7 +43,7 @@ class RollSequenceTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidRollNumber(int $invalidRollNumber)
     {
-        (new RollSequence())->appendRoll(new Roll(5))->rollNumber($invalidRollNumber);
+        (new RollSequence())->addRoll(new Roll(5))->rollNumber($invalidRollNumber);
     }
 
     /**
@@ -56,5 +56,44 @@ class RollSequenceTest extends \PHPUnit_Framework_TestCase
             [0],
             [-1]
         ];
+    }
+
+    /**
+     * @covers RollSequence::addRollSequence()
+     */
+    public function testAddRollSequenceReturnsNewInstance(): void
+    {
+        $roll1 = new Roll(10);
+        $roll2 = new Roll(7);
+
+        $rollSequence = (new RollSequence())->addRoll($roll1);
+        $rollSequence2 = $rollSequence->addRollSequence(
+            (new RollSequence())->addRoll($roll2)
+        );
+
+        $this->assertNotSame($rollSequence, $rollSequence2);
+    }
+
+    /**
+     * @covers RollSequence::addRollSequence()
+     */
+    public function testAddRollSequence(): void
+    {
+        $roll1 = new Roll(10);
+        $roll2 = new Roll(7);
+        $roll3 = new Roll(5);
+
+        $this->assertEquals(
+            [$roll1, $roll2, $roll3],
+            iterator_to_array(
+                (new RollSequence())
+                    ->addRoll($roll1)
+                    ->addRollSequence(
+                        (new RollSequence())
+                                ->addRoll($roll2)
+                                ->addRoll($roll3)
+                    )
+            )
+        );
     }
 }

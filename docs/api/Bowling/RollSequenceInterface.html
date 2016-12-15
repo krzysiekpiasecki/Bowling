@@ -128,9 +128,19 @@
                     <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_appendRoll">appendRoll</a>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
+                    <a href="#method_addRoll">addRoll</a>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
         
-                                            <p>Append a new roll</p>                </div>
+                                            <p>Add a new roll to a sequence</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addRollSequence">addRollSequence</a>(<a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a> $rollSequence)
+        
+                                            <p>Add a new roll sequence to a sequence</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -141,7 +151,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at line         line 44</div>
+        <div class="location">at line         line 55</div>
         <code>                    int
     <strong>count</strong>()
         </code>
@@ -169,7 +179,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getIterator">
-        <div class="location">at line         line 49</div>
+        <div class="location">at line         line 60</div>
         <code>                    <a target="_blank" href="http://php.net/Traversable">Traversable</a>
     <strong>getIterator</strong>()
         </code>
@@ -197,7 +207,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rollNumber">
-        <div class="location">at line         line 31</div>
+        <div class="location">at line         line 34</div>
         <code>                    <a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a>
     <strong>rollNumber</strong>(<abbr title="Bowling\int">int</abbr> $number)
         </code>
@@ -207,7 +217,7 @@
     
 
                     <div class="method-description">
-                                    <p>A roll with a given number</p>                                </div>
+                                    <p>A roll with a given number</p>                    <p>OutOfBoundsException is thrown if given roll number is invalid or out of the sequence bounds.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -235,7 +245,7 @@
                     <table class="table table-condensed">
                     <tr>
                 <td><a target="_blank" href="http://php.net/OutOfBoundsException">OutOfBoundsException</a></td>
-                <td>Thrown if given roll number is invalid</td>
+                <td>Thrown if given roll number is invalid or out of the sequence bounds</td>
             </tr>
             </table>
 
@@ -245,10 +255,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_appendRoll">
-        <div class="location">at line         line 39</div>
+                    <h3 id="method_addRoll">
+        <div class="location">at line         line 42</div>
         <code>                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
-    <strong>appendRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
+    <strong>addRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
         </code>
     </h3>
     <div class="details">
@@ -256,7 +266,7 @@
     
 
                     <div class="method-description">
-                                    <p>Append a new roll</p>                                </div>
+                                    <p>Add a new roll to a sequence</p>                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -264,7 +274,7 @@
                     <tr>
                 <td><a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a></td>
                 <td>$roll</td>
-                <td>A new roll appended to a sequence</td>
+                <td>A new roll added to this sequence</td>
             </tr>
             </table>
 
@@ -274,7 +284,47 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a></td>
-            <td>A new sequence with a new roll appended to the sequence</td>
+            <td>A new sequence with a new roll added to the sequence</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addRollSequence">
+        <div class="location">at line         line 50</div>
+        <code>                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
+    <strong>addRollSequence</strong>(<a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a> $rollSequence)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Add a new roll sequence to a sequence</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a></td>
+                <td>$rollSequence</td>
+                <td>Other roll sequence</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a></td>
+            <td>A sequence with rolls added from other roll sequence</td>
         </tr>
     </table>
 
