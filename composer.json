@@ -29,7 +29,7 @@
     "test": "vendor/bin/phpunit",
     "phan": "vendor/bin/phan -k phan.php.dist",
     "check": "vendor/bin/phan -k phan.php.dist; vendor/bin/phpunit",
-    "build": "vendor/bin/phing -v"
+    "build": "vendor/bin/phing dist -verbose"
   },
   "extra": {
   },
