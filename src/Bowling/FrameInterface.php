@@ -21,41 +21,43 @@ namespace Bowling;
  */
 interface FrameInterface extends ScoreInterface
 {
-
     /**
      * @inheritdoc
      */
     public function score(): int;
 
     /**
-     * Roll with a given number
+     * Return a roll with a given number
      *
-     * @param int $rollNumber
-     * @return RollInterface
-     * @throws \OutOfBoundsException Thrown if given roll number is invalid
+     * @param int $rollNumber A roll number
+     * @return RollInterface A roll at the given position
+     * @throws \InvalidArgumentException Thrown if a given roll number is invalid
      */
     public function rollNumber(int $rollNumber): RollInterface;
 
     /**
-     * A new frame with another roll
+     * Return a frame with another roll
      *
-     * @param RollInterface $roll Another roll which belongs to a frame
-     * @return FrameInterface A new frame with another roll
+     * @param RollInterface $roll Another roll which will be a part of this frame
+     * @return FrameInterface A frame with another roll
      */
     public function withRoll(RollInterface $roll): FrameInterface;
 
     /**
-     * @param RollInterface $roll
-     * @param int $rollNumber
-     * @return mixed
+     * Replace roll at the given position
+     *
+     * @param RollInterface $roll A roll which replace a roll at the given position
+     * @param int $rollNumber Roll number to replace
+     * @return FrameInterface A frame with a roll at the given position replaced with a new roll
+     * @throws \InvalidArgumentException Thrown if a given roll number is invalid
      */
     public function replaceRoll(RollInterface $roll, int $rollNumber): FrameInterface;
 
     /**
-     * A roll sequence
+     * Return a sequence of rolls
+     *
      * @return RollSequenceInterface A roll sequence
      */
     public function rollSequence(): RollSequenceInterface;
 
-    // public function isSpare(): bool;
 }

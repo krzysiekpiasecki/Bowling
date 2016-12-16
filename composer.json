@@ -1,6 +1,7 @@
 {
   "name": "krzysiekpiasecki/bowling",
   "type": "library",
+  "minimum-stability": "dev",
   "description": "Simple Bowling game engine",
   "keywords": [
     "bowling",
@@ -20,7 +21,7 @@
     "phing/phing": "^2.15",
     "phpunit/phpunit": "^5.6",
     "etsy/phan": "^0.7",
-    "sami/sami": "^3.3",
+    "sami/sami": "dev-master",
     "friendsofphp/php-cs-fixer": "^1.12"
   },
   "conflict": {

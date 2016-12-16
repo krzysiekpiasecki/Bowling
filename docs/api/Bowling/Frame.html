@@ -98,8 +98,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>New Frame with no rolls and initial score set to zero</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -140,7 +139,7 @@
                     <a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_rollNumber">rollNumber</a>(<abbr title="Bowling\int">int</abbr> $rollNumber)
+                    <a href="#method_rollNumber">rollNumber</a>(int $rollNumber)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -148,10 +147,10 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    <a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_replaceRoll">replaceRoll</a>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll, <abbr title="Bowling\int">int</abbr> $rollNumber)
+                    <a href="#method_replaceRoll">replaceRoll</a>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll, int $rollNumber)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -165,7 +164,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line         line 28</div>
+        <div class="location">at         line 39</div>
         <code>                    
     <strong>__construct</strong>()
         </code>
@@ -174,6 +173,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>New Frame with no rolls and initial score set to zero</p>                                </div>
                 <div class="tags">
             
             
@@ -184,7 +185,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_score">
-        <div class="location">at line         line 37</div>
+        <div class="location">at         line 48</div>
         <code>                    int
     <strong>score</strong>()
         </code>
@@ -212,7 +213,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_withRoll">
-        <div class="location">at line         line 45</div>
+        <div class="location">at         line 56</div>
         <code>                    <a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a>
     <strong>withRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
         </code>
@@ -228,7 +229,7 @@
                     <tr>
                 <td><a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a></td>
                 <td>$roll</td>
-                <td>Another roll which belongs to a frame</td>
+                <td>Another roll which will be a part of this frame</td>
             </tr>
             </table>
 
@@ -238,7 +239,7 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a></td>
-            <td>A new frame with another roll</td>
+            <td>A frame with another roll</td>
         </tr>
     </table>
 
@@ -250,7 +251,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rollSequence">
-        <div class="location">at line         line 57</div>
+        <div class="location">at         line 69</div>
         <code>                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
     <strong>rollSequence</strong>()
         </code>
@@ -278,9 +279,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rollNumber">
-        <div class="location">at line         line 65</div>
+        <div class="location">at         line 77</div>
         <code>                    <a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a>
-    <strong>rollNumber</strong>(<abbr title="Bowling\int">int</abbr> $rollNumber)
+    <strong>rollNumber</strong>(int $rollNumber)
         </code>
     </h3>
     <div class="details">
@@ -292,9 +293,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Bowling\int">int</abbr></td>
+                <td>int</td>
                 <td>$rollNumber</td>
-                <td></td>
+                <td>A roll number</td>
             </tr>
             </table>
 
@@ -304,7 +305,7 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a></td>
-            <td></td>
+            <td>A roll at the given position</td>
         </tr>
     </table>
 
@@ -316,9 +317,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_replaceRoll">
-        <div class="location">at line         line 77</div>
-        <code>                    mixed
-    <strong>replaceRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll, <abbr title="Bowling\int">int</abbr> $rollNumber)
+        <div class="location">at         line 87</div>
+        <code>                    <a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a>
+    <strong>replaceRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll, int $rollNumber)
         </code>
     </h3>
     <div class="details">
@@ -332,12 +333,12 @@
                     <tr>
                 <td><a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a></td>
                 <td>$roll</td>
-                <td></td>
+                <td>A roll which replace a roll at the given position</td>
             </tr>
                     <tr>
-                <td><abbr title="Bowling\int">int</abbr></td>
+                <td>int</td>
                 <td>$rollNumber</td>
-                <td></td>
+                <td>Roll number to replace</td>
             </tr>
             </table>
 
@@ -346,8 +347,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
-            <td></td>
+            <td><a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a></td>
+            <td>A frame with a roll at the given position replaced with a new roll</td>
         </tr>
     </table>
 

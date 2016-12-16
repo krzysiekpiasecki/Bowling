@@ -83,7 +83,11 @@
     
 
             <div class="description">
-            <p>Represents a sequence of rolls</p>                    </div>
+            <p>Represents a sequence of rolls</p>            <p>A sequence is a group of rolls that are kept in an ordered list. The order in which the rolls go
+in dictates how they are returned in a First In, First Out manner.</p>
+
+<p>This is an immutable implementation of {see RollSequenceInterface}. Linking this sequence
+with rolls or other sequence of rolls returns always a new instance.</p>        </div>
     
             <h2>Traits</h2>
 
@@ -130,7 +134,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $rolls = array())
+                    <a href="#method___construct">__construct</a>(array $rolls = [])
         
                                             <p>New roll sequence with a given sequence of rolls</p>                </div>
                 <div class="col-md-2"></div>
@@ -140,7 +144,7 @@
                     <a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_rollNumber">rollNumber</a>(<abbr title="Bowling\int">int</abbr> $number)
+                    <a href="#method_rollNumber">rollNumber</a>(int $number)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -176,7 +180,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_count"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at line         line 33</div>
+        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_count"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at         line 33</div>
         <code>                    int
     <strong>count</strong>()
         </code>
@@ -206,7 +210,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getIterator">
-        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_getIterator"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at line         line 43</div>
+        <div class="location">in <a href="../Bowling/SequenceTrait.html#method_getIterator"><abbr title="Bowling\SequenceTrait">SequenceTrait</abbr></a> at         line 43</div>
         <code>                    <a target="_blank" href="http://php.net/Traversable">Traversable</a>
     <strong>getIterator</strong>()
         </code>
@@ -236,9 +240,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line         line 33</div>
+        <div class="location">at         line 39</div>
         <code>                    
-    <strong>__construct</strong>(array $rolls = array())
+    <strong>__construct</strong>(array $rolls = [])
         </code>
     </h3>
     <div class="details">
@@ -267,9 +271,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rollNumber">
-        <div class="location">at line         line 41</div>
+        <div class="location">at         line 47</div>
         <code>                    <a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a>
-    <strong>rollNumber</strong>(<abbr title="Bowling\int">int</abbr> $number)
+    <strong>rollNumber</strong>(int $number)
         </code>
     </h3>
     <div class="details">
@@ -281,7 +285,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Bowling\int">int</abbr></td>
+                <td>int</td>
                 <td>$number</td>
                 <td>A roll number</td>
             </tr>
@@ -305,7 +309,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addRoll">
-        <div class="location">at line         line 53</div>
+        <div class="location">at         line 59</div>
         <code>                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
     <strong>addRoll</strong>(<a href="../Bowling/RollInterface.html"><abbr title="Bowling\RollInterface">RollInterface</abbr></a> $roll)
         </code>
@@ -343,7 +347,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addRollSequence">
-        <div class="location">at line         line 65</div>
+        <div class="location">at         line 71</div>
         <code>                    <a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a>
     <strong>addRollSequence</strong>(<a href="../Bowling/RollSequenceInterface.html"><abbr title="Bowling\RollSequenceInterface">RollSequenceInterface</abbr></a> $rollSequence)
         </code>

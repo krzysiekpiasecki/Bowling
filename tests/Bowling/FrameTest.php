@@ -60,13 +60,24 @@ class FrameTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideInvalidRollNumbers
-     * @expectedException \OutOfBoundsException
+     * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Invalid roll number
      * @param int $invalidRollNumber Invalid roll number
      */
     public function testInvalidRollNumber(int $invalidRollNumber)
     {
         (new Frame())->withRoll(new Roll(5))->rollNumber($invalidRollNumber);
+    }
+
+    /**
+     * @dataProvider provideInvalidRollNumbers
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Invalid roll number
+     * @param int $invalidRollNumber Invalid roll number
+     */
+    public function testInvalidRollNumberWhenReplacing(int $invalidRollNumber)
+    {
+        (new Frame())->withRoll(new Roll(5))->replaceRoll(new Roll(5), $invalidRollNumber);
     }
 
     /**

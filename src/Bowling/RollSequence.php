@@ -16,6 +16,12 @@ namespace Bowling;
 /**
  * Represents a sequence of rolls
  *
+ * A sequence is a group of rolls that are kept in an ordered list. The order in which the rolls go
+ * in dictates how they are returned in a First In, First Out manner.
+ *
+ * This is an immutable implementation of {@see RollSequenceInterface}. Linking this sequence
+ * with rolls or other sequence of rolls returns always a new instance.
+ *
  * @see RollSequenceInterface A sequence of rolls
  * @author Krzysztof Piasecki <krzysiekpiasecki@gmail.com>
  * @since 1.0
