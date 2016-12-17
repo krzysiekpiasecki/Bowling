@@ -50,7 +50,7 @@ final class RollSequence implements RollSequenceInterface
             throw new \OutOfBoundsException("Invalid roll number");
         }
 
-        return $this->sequence[$this->count() - 1];
+        return $this->sequence[$number - 1];
     }
 
     /**

@@ -36,6 +36,18 @@ class RollSequenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers RollSequence::rollNumber()
+     * @covers RollSequence::rollNumber()
+     */
+    public function testRollNumber()
+    {
+        $roll = new Roll(5);
+        $roll2 = new Roll(10);
+        $rollSequence = (new RollSequence())->addRoll($roll)->addRoll($roll2);
+        $this->assertSame($roll, $rollSequence->rollNumber(1));
+    }
+
+    /**
      * @dataProvider provideInvalidRollNumbers
      * @expectedException \OutOfBoundsException
      * @expectedExceptionMessage Invalid roll number
