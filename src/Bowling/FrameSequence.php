@@ -58,25 +58,40 @@ final class FrameSequence implements FrameSequenceInterface
      */
     public function addFrame(FrameInterface $frame): FrameSequenceInterface
     {
-        $newRollSequence = clone $this;
-        $newRollSequence->sequence[] = $frame;
+        $newFrameSequence = clone $this;
+        $newFrameSequence->sequence[] = $frame;
 
-        return $newRollSequence;
+        return $newFrameSequence;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function replaceFrame(FrameInterface $frame, int $number): FrameSequenceInterface {
+
+        if (!isset($this->sequence[$number - 1])) {
+            throw new \OutOfBoundsException("Invalid frame number");
+        }
+
+        $newFrameSequence = clone $this;
+        $newFrameSequence->sequence[$number - 1] = $frame;
+
+        return $newFrameSequence;
+
+    }
 
     /**
      * @inheritdoc
      */
     public function addFrameSequence(FrameSequenceInterface $frameSequence): FrameSequenceInterface
     {
-        $newSequence = clone $this;
+        $newFrameSequence = clone $this;
 
-        $newSequence->sequence = array_merge(
+        $newFrameSequence->sequence = array_merge(
             $this->sequence,
             iterator_to_array($frameSequence)
         );
 
-        return $newSequence;
+        return $newFrameSequence;
     }
 }

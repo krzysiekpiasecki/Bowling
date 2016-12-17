@@ -39,6 +39,16 @@ interface FrameSequenceInterface extends SequenceInterface
     public function addFrame(FrameInterface $frame): FrameSequenceInterface;
 
     /**
+     * Replace frame with a given number
+     *
+     * @param FrameInterface $frame A frame which replace a frame a given number
+     * @param int $number Number of frame
+     * @return FrameSequenceInterface New frame with a frame replaced by other frame
+     * @throws \OutOfBoundsException Thrown when number is out of the sequence bounds
+     */
+    public function replaceFrame(FrameInterface $frame, int $number): FrameSequenceInterface;
+
+/**
      * Add frames from other sequence to a sequence
      *
      * @param FrameSequenceInterface $frameSequence A frame sequence to add

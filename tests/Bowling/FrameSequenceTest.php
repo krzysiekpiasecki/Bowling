@@ -96,4 +96,31 @@ class FrameSequenceTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
+
+
+    /**
+     * @covers FrameSequence::replaceFrame()
+     */
+    public function testReplaceFrame()
+    {
+        $frame1 = new Frame();
+        $frame2 = new Frame();
+        $frameSequence = (new FrameSequence())->addFrame($frame1);
+        $frameSequence2 = $frameSequence->replaceFrame($frame2, 1);
+
+        $this->assertNotSame($frameSequence, $frameSequence2);
+        $this->assertSame($frame2, $frameSequence2->frameNumber(1));
+
+    }
+
+    /**
+     * @dataProvider provideInvalidFrameNumbers
+     * @expectedException \OutOfBoundsException
+     * @expectedExceptionMessage Invalid frame number
+     * @param int $invalidFrameNumber Invalid roll number
+     */
+    public function testInvalidFrameNumberWhenReplacingFrame(int $invalidFrameNumber)
+    {
+        (new FrameSequence())->addFrame(new Frame())->replaceFrame(new Frame(), $invalidFrameNumber);
+    }
 }
