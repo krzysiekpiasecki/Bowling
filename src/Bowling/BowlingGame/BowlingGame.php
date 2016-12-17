@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Bowling\BowlingGame;
 
 use Bowling\Frame;
+use Bowling\FrameInterface;
+use Bowling\FrameSequence;
 use Bowling\Roll;
 
 /**
@@ -21,8 +23,6 @@ use Bowling\Roll;
  */
 class BowlingGame
 {
-    private $frameSequence;
-
     private $frames;
     private $frameNumber;
     private $rollNumber;
@@ -35,11 +35,11 @@ class BowlingGame
      */
     public function __construct()
     {
-        $this->frames = [];
-        $this->strike = 0;
-        $this->spare = 0;
+        $this->frames = new FrameSequence();
         $this->frameNumber = 0;
         $this->nextFrame = true;
+        $this->strike = 0;
+        $this->spare = 0;
     }
 
     /**
@@ -63,20 +63,25 @@ class BowlingGame
 
     public function score(): int
     {
-        return array_reduce($this->frames, function ($carry, $bag) {
-            return $bag->score() + $carry;
-        }, 0);
+        return array_reduce(
+            iterator_to_array($this->frames), function ($carry, $bag) {
+                return $bag->score() + $carry;
+            },
+            0
+        );
     }
 
     public function printGame(BowlingGameInterface $game)
     {
+
     }
 
 
     public function isFinished(): bool
     {
-        if (10 === $this->frameNumber) {
-            $currentFrame = $this->frames[9];
+        if (10 === $this->frameNumber()) {
+
+            $currentFrame = $this->currentFrame();
             $currentFrameSequence = $currentFrame->rollSequence();
             $currentFrameRollCount = $currentFrame->rollSequence()->count();
 
@@ -87,10 +92,12 @@ class BowlingGame
             }
 
             if (3 === $currentFrameRollCount) {
+                // Strike has been hit
                 if (10 == $currentFrameSequence->rollNumber(1)->score()) {
                     return true;
                 }
-                if (10 === ($currentFrameSequence->rollNumber(1)->score() + $currentFrameSequence->rollNumber(2)->score())) {
+                // Spare has been hit
+                if (10 === ($currentFrameSequence->rollNumber(1)->pins() + $currentFrameSequence->rollNumber(2)->pins())) {
                     return true;
                 }
             }
@@ -99,45 +106,71 @@ class BowlingGame
         return false;
     }
 
+    /**
+     *
+     */
     private function nextFrame()
     {
         if (true === $this->nextFrame) {
-            $this->frames[] = new Frame();
-            $this->nextFrame = false;
+            $this->frames = $this->frames->addFrame(new Frame());
             $this->frameNumber = $this->frameNumber + 1;
+            $this->nextFrame = false;
         }
+
     }
 
+    /**
+     * @param int $numberOfPins
+     */
     private function nextRoll(int $numberOfPins)
     {
+
         $this->rollNumber = $this->rollNumber + 1;
-        $this->frames[$this->frameNumber - 1] = $this->frames[$this->frameNumber - 1]->withRoll(
-            (new Roll($numberOfPins))->withPoints($numberOfPins)
+
+        $this->frames = $this->frames->replaceFrame(
+            $this->currentFrame()
+                ->withRoll(
+                    // @todo: Replace with a domain roll
+                    (new Roll($numberOfPins))->withPoints($numberOfPins)
+            ),
+            $this->frameNumber()
         );
 
-        if (2 == $this->currentFrame()->rollSequence()->count() && 10 !== $this->frameNumber) {
+        if (2 == $this->currentFrame()->rollSequence()->count() && 10
+                !== $this->frameNumber) {
             $this->nextFrame = true;
         }
+
     }
 
     private function handleStrike(int $numberOfPins)
     {
         if (0 < $this->strike) {
-            $strikeFrameIndex = $this->frameNumber - 2;
 
-            $this->frames[$strikeFrameIndex] = $this->frames[$strikeFrameIndex]->replaceRoll(
-                $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withPoints($numberOfPins),
-                1
+            $strikeFrameIndex = $this->frameNumber() - 1;
+
+            $this->frames = $this->frames->replaceFrame(
+                $this->frameAt($strikeFrameIndex)->replaceRoll(
+                    // @todo: Replace with a domain roll ?
+                    $this->frameAt($strikeFrameIndex)->rollNumber(1)->withPoints($numberOfPins),
+                    1
+                ),
+                $strikeFrameIndex
             );
 
             $this->strike = $this->strike - 1;
 
             if (2 == $this->strike) {
+
                 $strikeFrameIndex = $strikeFrameIndex - 1;
 
-                $this->frames[$strikeFrameIndex] = $this->frames[$strikeFrameIndex]->replaceRoll(
-                    $this->frames[$strikeFrameIndex]->rollSequence()->rollNumber(1)->withPoints($numberOfPins),
-                    1
+                $this->frames = $this->frames->replaceFrame(
+                    $this->frameAt($strikeFrameIndex)->replaceRoll(
+                    // @todo: Replace with a domain roll ?
+                        $this->frameAt($strikeFrameIndex)->rollNumber(1)->withPoints($numberOfPins),
+                        1
+                    ),
+                    $strikeFrameIndex
                 );
 
                 $this->strike = $this->strike - 1;
@@ -161,28 +194,56 @@ class BowlingGame
      * the next ball (only the first ball is counted).<cite>
      *
      * @link https://en.wikipedia.org/wiki/Ten-pin_bowling Ten pin bowling
-     * @param int $numberPins
+     * @param int $numberOfPins
      */
-    private function handleSpare(int $numberPins)
+    private function handleSpare(int $numberOfPins)
     {
         if (1 === $this->spare) {
             $this->spare = 0;
 
-            $spareFrameIndex = $this->frameNumber - 2;
-            $this->frames[$spareFrameIndex] = $this->frames[$spareFrameIndex]->replaceRoll(
-                $this->frames[$this->frameNumber - 2]->rollSequence()->rollNumber(2)->withPoints($numberPins),
-                2
+            $spareFrameIndex = $this->frameNumber();
+
+            $this->frames = $this->frames->replaceFrame(
+                $this->frameAt($spareFrameIndex)->replaceRoll(
+                // @todo: Replace with a domain roll ?
+                    $this->frameAt($spareFrameIndex)->rollNumber(1)->withPoints($numberOfPins),
+                    1
+                ),
+                $spareFrameIndex
             );
         }
 
-        if (10 === $this->currentFrame()->score()
-                && 1 != $this->currentFrame()->rollSequence()->count() && 10 !== $this->frameNumber) {
-            $this->spare = 1;
+        if (10 === $this->frameNumber()) {
+            return;
+        }
+
+        // @todo Use domain frame to ensure that frame has wins a spare
+        $rollSequence = $this->currentFrame()->rollSequence();
+        if ($rollSequence->count() == 2) {
+            if (10 == $rollSequence->rollNumber(1)->pins() + $rollSequence->rollNumber(2)->pins()) {
+                $this->spare = 1;
+            }
         }
     }
 
+    /**
+     * @return Frame
+     */
     private function currentFrame(): Frame
     {
-        return $this->frames[$this->frameNumber - 1];
+        return $this->frameAt($this->frameNumber());
+    }
+
+    private function frameAt(int $number): FrameInterface
+    {
+        return $this->frames->frameNumber($number);
+    }
+
+    /**
+     * @return int
+     */
+    private function frameNumber(): int
+    {
+        return $this->frameNumber;
     }
 }

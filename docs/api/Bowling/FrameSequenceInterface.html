@@ -136,6 +136,16 @@
                     <a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
+                    <a href="#method_replaceFrame">replaceFrame</a>(<a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a> $frame, int $number)
+        
+                                            <p>Replace frame with a given number</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_addFrameSequence">addFrameSequence</a>(<a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a> $frameSequence)
         
                                             <p>Add frames from other sequence to a sequence</p>                </div>
@@ -288,8 +298,62 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_replaceFrame">
+        <div class="location">at         line 49</div>
+        <code>                    <a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a>
+    <strong>replaceFrame</strong>(<a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a> $frame, int $number)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Replace frame with a given number</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../Bowling/FrameInterface.html"><abbr title="Bowling\FrameInterface">FrameInterface</abbr></a></td>
+                <td>$frame</td>
+                <td>A frame which replace a frame a given number</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$number</td>
+                <td>Number of frame</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a></td>
+            <td>New frame with a frame replaced by other frame</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" href="http://php.net/OutOfBoundsException">OutOfBoundsException</a></td>
+                <td>Thrown when number is out of the sequence bounds</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_addFrameSequence">
-        <div class="location">at         line 47</div>
+        <div class="location">at         line 57</div>
         <code>                    <a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a>
     <strong>addFrameSequence</strong>(<a href="../Bowling/FrameSequenceInterface.html"><abbr title="Bowling\FrameSequenceInterface">FrameSequenceInterface</abbr></a> $frameSequence)
         </code>
