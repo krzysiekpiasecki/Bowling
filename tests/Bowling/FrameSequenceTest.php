@@ -36,6 +36,19 @@ class FrameSequenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers FrameSequence::addFrame()
+     * @covers FrameSequence::frameNumber()
+     */
+    public function testFrameNumber()
+    {
+        $frame1 = new Frame();
+        $frame2 = new Frame();
+
+        $frameSequence = (new FrameSequence())->addFrame($frame1)->addFrame($frame2);
+        $this->assertSame($frame1, $frameSequence->frameNumber(1));
+    }
+
+    /**
      * @dataProvider provideInvalidFrameNumbers
      * @expectedException \OutOfBoundsException
      * @expectedExceptionMessage Invalid frame number
@@ -110,7 +123,6 @@ class FrameSequenceTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotSame($frameSequence, $frameSequence2);
         $this->assertSame($frame2, $frameSequence2->frameNumber(1));
-
     }
 
     /**

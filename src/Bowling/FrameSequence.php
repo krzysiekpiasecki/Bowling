@@ -50,7 +50,7 @@ final class FrameSequence implements FrameSequenceInterface
             throw new \OutOfBoundsException("Invalid frame number");
         }
 
-        return $this->sequence[$this->count() - 1];
+        return $this->sequence[$number - 1];
     }
 
     /**
