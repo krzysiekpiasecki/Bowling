@@ -121,6 +121,7 @@ class BowlingGame
 
     /**
      * @param int $numberOfPins
+     * @throws InvalidArgumentException When invalid number of pins
      */
     private function nextRoll(int $numberOfPins)
     {
@@ -130,8 +131,7 @@ class BowlingGame
         $this->frames = $this->frames->replaceFrame(
             $this->currentFrame()
                 ->withRoll(
-                    // @todo: Replace with a domain roll
-                    (new Roll($numberOfPins))->withPoints($numberOfPins)
+                    new BowlingGameRoll(new Roll($numberOfPins))
             ),
             $this->frameNumber()
         );
